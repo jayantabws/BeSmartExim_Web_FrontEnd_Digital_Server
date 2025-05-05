@@ -12,6 +12,7 @@ export const DOWNLOAD_COUNT_SUBUSER = 'DOWNLOAD_COUNT_SUBUSER';
 export const UPLINE_ID = 'UPLINE_ID';
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const MAX_DOWNLOAD = 'MAX_DOWNLOAD';
+export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 
 
 

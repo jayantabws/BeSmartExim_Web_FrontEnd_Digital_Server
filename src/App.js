@@ -8,9 +8,9 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Routes from './navigation/Routes';
-import "../node_modules/@syncfusion/ej2-base/styles/material.css"; 
-import "../node_modules/@syncfusion/ej2-inputs/styles/material.css"; 
-import "../node_modules/@syncfusion/ej2-react-dropdowns/styles/material.css"; 
+import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+import "../node_modules/@syncfusion/ej2-react-dropdowns/styles/material.css";
 
 
 
@@ -30,11 +30,11 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    document.addEventListener("contextmenu", function (e){
+    document.addEventListener("contextmenu", function (e) {
       e.preventDefault();
-  }, false);
+    }, false);
 
-  document.onkeydown = (e) => {
+    document.onkeydown = (e) => {
       // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
       if (
         e.keyCode === 123 ||
@@ -64,7 +64,7 @@ export default class App extends Component {
             },
           }}
         >
-            <Routes component={ScrollToTop} />
+          <Routes component={ScrollToTop} />
         </ThemeProvider>
       </div>
     );

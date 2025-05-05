@@ -1,4 +1,4 @@
-import React, { Component,useState, useRef, useCallback, useEffect, Fragment } from 'react'
+import React, { Component, useState, useRef, useCallback, useEffect, Fragment } from 'react'
 import { Row, Col, Modal, Button, FormGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Select from 'react-select'
 import AxiosMaster from '../shared/AxiosMaster';
@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import DatePicker from "react-datepicker";
 import Swal from 'sweetalert2';
 
-const users = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null ;
+const users = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 
 const initialValues = {
   firstname: "",
@@ -35,26 +35,27 @@ const validateForm = Yup.object().shape({
 
 const CreateUsers = (props) => {
 
-  const NewInitialValues =  Object.assign(initialValues,{download_limit : props.download_count})
+  const NewInitialValues = Object.assign(initialValues, { download_limit: props.download_count })
   const [userList, setUserList] = useState([]);
   const [subscriptionList, setSubscriptionList] = useState([]);
 
   const handleSubmit = (values) => {
     props.loaderStart()
-      const postData = {
-        "firstname": values.firstname,
-        "lastname": values.lastname,
-        "email": values.email,
-        "mobile": values.mobile,
-        "companyName": values.company_name,
-        "downloadLimit": values.download_limit,
-        "userType": "USER",
-        "password": values.password,
-        "isActive": values.isActive,
-        "uplineId": users.userid
-      }
+    const postData = {
+      "firstname": values.firstname,
+      "lastname": values.lastname,
+      "email": values.email,
+      "mobile": values.mobile,
+      "companyName": values.company_name,
+      "downloadLimit": values.download_limit,
+      "userType": "USER",
+      "password": values.password,
+      "isActive": values.isActive,
+      "uplineId": users.userid
+    }
 
-      if(values.download_limit <= props.download_count) {
+
+    if (Number(values.download_limit) <= Number(props.download_count)) {
       AxiosUser({
         method: "POST",
         url: `user-management/user`,
@@ -69,9 +70,9 @@ const CreateUsers = (props) => {
             text: "User created successfully",
             icon: 'success',
           }).then((isSuccess) => {
-            if(isSuccess){       
+            if (isSuccess) {
               //props.UpdateSubscription({"subUserCount" : props.subUserCount -1, "downloadLimit": props.download_count - values.download_limit})
-              props.UpdateSubscription({"subUserCount" : props.subUserCount -1})
+              props.UpdateSubscription({ "subUserCount": props.subUserCount - 1 })
               props.OnUserCreate()
               props.loaderStop()
             }
@@ -89,14 +90,14 @@ const CreateUsers = (props) => {
             icon: 'error',
           })
         });
-      }
-      else {
-        Swal.fire({
-              title: 'Oops!',
-              text: "Download Limit should be less than total limit",
-              icon: 'error',
-            })
-      }
+    }
+    else {
+      Swal.fire({
+        title: 'Oops!',
+        text: "Download Limit should be less than total limit",
+        icon: 'error',
+      })
+    }
 
   }
 
@@ -104,7 +105,7 @@ const CreateUsers = (props) => {
 
     AxiosMaster({
       method: "GET",
-      url: `masterdata-management/subscription/list`,    
+      url: `masterdata-management/subscription/list`,
     })
       .then(res => {
         setSubscriptionList(res.data.subscriptionList)
@@ -114,18 +115,19 @@ const CreateUsers = (props) => {
       });
   }
 
-  useEffect(() => {
-    getSubscriptionList()
-  },[])
+  // useEffect(() => {
+  //   // getSubscriptionList()
+  //   console.log("Download count >>> ", props.download_count)
+  // }, [])
 
 
-    return (
-      <div> 
-        <div className="row">
-          <div className="col-lg-12 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="table-responsive">
+  return (
+    <div>
+      <div className="row">
+        <div className="col-lg-12 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="table-responsive">
 
                 <Formik
                   initialValues={NewInitialValues}
@@ -135,7 +137,7 @@ const CreateUsers = (props) => {
                   {({ values, errors, setFieldValue, setFieldError, touched, isValid, handleSubmit, submitForm }) => {
                     return (
                       <Form >
-                        
+
                         <div className="form-group">
                           <label><b>First Name</b></label>
                           <Field
@@ -151,7 +153,7 @@ const CreateUsers = (props) => {
                           {touched.firstname && errors.firstname && (<p className="error">{errors.firstname}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Last Name</b></label>
+                          <label><b>Last Name</b></label>
                           <Field
                             name="lastname"
                             type="text"
@@ -165,7 +167,7 @@ const CreateUsers = (props) => {
                           {touched.lastname && errors.lastname && (<p className="error">{errors.lastname}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Email</b></label>
+                          <label><b>Email</b></label>
                           <Field
                             name="email"
                             type="text"
@@ -179,7 +181,7 @@ const CreateUsers = (props) => {
                           {touched.email && errors.email && (<p className="error">{errors.email}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Mobile</b></label>
+                          <label><b>Mobile</b></label>
                           <Field
                             name="mobile"
                             type="text"
@@ -193,7 +195,7 @@ const CreateUsers = (props) => {
                           {touched.mobile && errors.mobile && (<p className="error">{errors.mobile}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Password</b></label>
+                          <label><b>Password</b></label>
                           <Field
                             name="password"
                             type="password"
@@ -207,7 +209,7 @@ const CreateUsers = (props) => {
                           {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Company Name</b></label>
+                          <label><b>Company Name</b></label>
                           <Field
                             name="company_name"
                             type="text"
@@ -221,7 +223,7 @@ const CreateUsers = (props) => {
                           {touched.company_name && errors.company_name && (<p className="error">{errors.company_name}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Assigned Download Limit</b></label>
+                          <label><b>Assigned Download Limit</b></label>
                           <Field
                             name="download_limit"
                             type="text"
@@ -235,24 +237,24 @@ const CreateUsers = (props) => {
                           {touched.download_limit && errors.download_limit && (<p className="error">{errors.download_limit}</p>)}
                         </div>
                         <div className="form-group">
-                        <label><b>Status</b></label>
+                          <label><b>Status</b></label>
                           <Field
                             name="isActive"
                             component="select"
                             className={`form-control ${touched.isActive && errors.isActive ? "is-invalid" : ""}`}
-                            autoComplete="off"      
+                            autoComplete="off"
                             onChange={event => {
                               setFieldValue("isActive", event.target.value);
                             }}
                           >
-                                <option value="" >Please Select</option>
-                                <option value="Y" >ACTIVE</option>
-                                <option value="N" >IN-ACTIVE</option>
-                               
+                            <option value="" >Please Select</option>
+                            <option value="Y" >ACTIVE</option>
+                            <option value="N" >IN-ACTIVE</option>
+
                             {touched.isActive && errors.isActive && (<p className="error">{errors.isActive}</p>)}
-                          </Field>   
+                          </Field>
                         </div>
-                       
+
                         <button type="submit" onClick={(event) => {
                           event.preventDefault();
                           handleSubmit();
@@ -263,14 +265,14 @@ const CreateUsers = (props) => {
                   }
                 </Formik>
 
-                </div>
               </div>
             </div>
           </div>
-         
         </div>
+
       </div>
-    )
+    </div>
+  )
 
 }
 

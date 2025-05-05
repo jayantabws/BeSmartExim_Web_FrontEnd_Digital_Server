@@ -502,6 +502,7 @@ export const columnListExportUSA = [
 
 export const columnListExportDownloadUSA = [
     { key: 'id', label: 'Sl', width: 100 },
+    { key: 'ctry_name', label: 'Data Source', width: 200 },
 	{ key: 'date', label: 'Date', width: 150 },
 	{ key: 'hs_code', label: 'HSCODE', width: 150 },
     { key: 'product_description', label: 'Product Description', width: 200 },
@@ -689,6 +690,7 @@ export const columnListExportDownloadUSA = [
 
 export const columnListImportDownloadUSA = [
     { key: 'id', label: 'Sl', width: 100 },
+    { key: 'ctry_name', label: 'Data Source', width: 200 },
 	{ key: 'be_date', label: 'Date', width: 200 },
     { key: 'hs_code', label: 'HSCODE', width: 100 },
     { key: 'product_description', label: 'Product Description', width: 200 },
@@ -869,6 +871,7 @@ export const columnListImportDownloadUSA = [
 
 export const columnListImportForeign = [
     // { key: 'id', label: 'Sl', width: 100 },
+    { key: 'ctry_name', label: 'Data Source', width: 200 },
 	{ key: 'be_date', label: 'Date', width: 200 },
 	{ key: 'hs_code', label: 'HSCODE', width: 100 },
     { key: 'product_description', label: 'Product Description', width: 200 },
@@ -1048,6 +1051,7 @@ export const columnListImportForeign = [
 
 export const columnListImportDownloadForeign = [
     { key: 'id', label: 'Sl', width: 100 },
+    { key: 'ctry_name', label: 'Data Source', width: 200 },
 	{ key: 'be_date', label: 'Date', width: 200 },
     { key: 'hs_code', label: 'HSCODE', width: 100 },
     { key: 'product_description', label: 'Product Description', width: 200 },
@@ -1228,6 +1232,7 @@ export const columnListImportDownloadForeign = [
 
 export const columnListExportForeign = [
     // { key: 'id', label: 'Sl', width: 100 },
+    { key: 'ctry_name', label: 'Data Source', width: 200 },
 	{ key: 'date', label: 'Date', width: 150 },
 	{ key: 'hs_code', label: 'HSCODE', width: 150 },
     { key: 'product_description', label: 'Product Description', width: 300 },
@@ -1416,6 +1421,7 @@ export const columnListExportForeign = [
 
 export const columnListExportDownloadForeign = [
     // { key: 'id', label: 'Sl', width: 100 },
+    { key: 'ctry_name', label: 'Data Source', width: 200 },
 	{ key: 'date', label: 'Date', width: 150 },
 	{ key: 'hs_code', label: 'HSCODE', width: 150 },
     { key: 'product_description', label: 'Product Description', width: 200 },

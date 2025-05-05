@@ -147,7 +147,7 @@ const searchBYList = {
   const actionFormatter = (cell,row) => {
     return (<div> <button onClick={() => {
       history.push({
-        pathname: '/list',
+        pathname: '/list1',
         state: {
           search_id: cell, workspace_id: "NIL"
         }

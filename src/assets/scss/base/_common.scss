@@ -370,6 +370,7 @@ tbody tr:hover {
 .rs-btn-icon.rs-btn-xs {background: #f1b502!important; border-radius: 50px; color: #fff;  font-size: 15px;}
 
 .advance-search {height:100vh !important; top:0!important;}
-.ad-mid {height: 100%!important; overflow: visible !important;}
+// .ad-mid {height: 100%!important; overflow: visible !important;}
 .ad-mid label {margin-bottom: 0;}
 .ad-mid .mb-3 {margin-bottom: .5rem !important;}
+.ad-mid { max-height: 80vh !important; overflow-y: auto !important; }

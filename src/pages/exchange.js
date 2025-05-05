@@ -141,7 +141,7 @@ const routeToList = (data) => {
                 <li>Search <i className="icon ion-md-close"></i></li>
               </ul>
               <div className="page-title-right">
-                <Link className="btn btn-warning" to="/list"><i class="icon ion-md-globe text-primary font-size-24 sub" ></i> Global Search</Link>
+                <Link className="btn btn-warning" to="/list1"><i class="icon ion-md-globe text-primary font-size-24 sub" ></i> Global Search</Link>
               </div>
 
             </div>
